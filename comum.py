@@ -75,6 +75,7 @@ def retorno_otimo(ambiente, gamma=0.999, tol=1e-9):
 def treinar(ambiente, nome_alg, verbose=False):
     """Roda N_TREINOS treinos e devolve (rewards[N, episodes], passos[N, episodes], q_tables[N])."""
     Alg = ALGORITMOS[nome_alg]
+    os.makedirs(DATA_DIR, exist_ok=True)
     rewards, passos, qts = [], [], []
     for seed in range(N_TREINOS):
         env = make_env(ambiente)
